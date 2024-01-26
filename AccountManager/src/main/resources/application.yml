@@ -1,0 +1,27 @@
+server:
+  port: 10003
+  servlet:
+    context-path: /user
+spring:
+  application:
+    name: account.manager
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://service.discovery:8761/eureka}
+  instance:
+    preferIpAddress: true
+
+management:
+  endpoints:
+    enabled-by-default: false
+    web:
+      exposure:
+        include: health, info
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+    info:
+      enabled: true

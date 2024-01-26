@@ -13,3 +13,11 @@ services:
     container_name: authorization.manager
     depends_on:
       - service.discovery
+  account.manager:
+    ports:
+      - 10002:10002
+    build:
+      context: AccountManager
+    container_name: account.manager
+    depends_on:
+      - service.discovery
