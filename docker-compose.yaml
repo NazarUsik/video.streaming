@@ -1,0 +1,7 @@
+services:
+  service.discovery:
+    ports:
+      - 8761:8761
+    build:
+      context: ServiceDiscovery
+    container_name: service.discovery
