@@ -6,6 +6,11 @@ server:
 spring:
   application:
     name: authorization.manager
+  security:
+    props:
+      algorithm: ${SECURITY_ALGORITHM:RS256}
+      secret: ${SECURITY_SECRET:} # only for HS256
+      expires-at: 1000000
 
 eureka:
   client:
@@ -13,3 +18,19 @@ eureka:
       defaultZone: ${EUREKA_URI:http://service.discovery:8761/eureka}
   instance:
     preferIpAddress: true
+
+management:
+  endpoints:
+    enabled-by-default: false
+    web:
+      exposure:
+        include: health, info
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+    info:
+      enabled: true
+
+public:
+  endpoints: /actuator,/actuator/health,/actuator/info
