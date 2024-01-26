@@ -8,6 +8,15 @@ spring:
   security:
     props:
       secret: ${SECURITY_SECRET:} # only for HS256
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://database:5432/videostreaming}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: POSTGRESQL
   jackson:
     deserialization:
       fail-on-unknown-properties: false
