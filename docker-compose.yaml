@@ -5,3 +5,11 @@ services:
     build:
       context: ServiceDiscovery
     container_name: service.discovery
+  authorization.manager:
+    ports:
+      - 10001:10001
+    build:
+      context: AuthorizationManager
+    container_name: authorization.manager
+    depends_on:
+      - service.discovery
