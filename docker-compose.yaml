@@ -57,6 +57,16 @@ services:
       - service.discovery
       - authorization.manager
       - database
+  statistics.manager:
+    ports:
+      - 10003:10003
+    build:
+      context: StatisticsManager
+    container_name: statistics.manager
+    depends_on:
+      - service.discovery
+      - database
+      - kafka
   database:
     image: postgres:latest
     restart: always
