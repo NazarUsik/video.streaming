@@ -1,4 +1,4 @@
-# [Video Streaming Microservice Documentation](docs\Video_Streaming_Microservice_Documentation.pdf)
+# [Video Streaming Microservice Documentation](docs/Video_Streaming_Microservice_Documentation.pdf)
 
 ## Introduction
 
@@ -72,7 +72,7 @@ By the end of the project, the client anticipates achieving:
 
 ### High level view
 
-![high level diagram](docs\video-streaming_hlv.drawio.png)
+![high level diagram](docs/video-streaming_hlv.drawio.png)
 
 The high-level architecture diagram illustrates the main components of the Video Streaming API, including the
 integration with MinIO for video content storage and PostgreSQL for metadata persistence.
@@ -83,7 +83,7 @@ performed through communication via a message using Kafka.
 
 ### Low level view
 
-![low level diagram](docs\video-streaming_llv.drawio.png)
+![low level diagram](docs/video-streaming_llv.drawio.png)
 
 This section delves into the detailed architecture of each component, highlighting their responsibilities and
 interactions. Specifically, it outlines the integration with MinIO for video content storage and PostgreSQL for metadata
@@ -101,7 +101,7 @@ The following technologies were chosen to implement the video streaming API:
 
 ## Use Case Diagrams
 
-![use cases diagram](docs\video-streaming_use-cases.drawio.png)
+![use cases diagram](docs/video-streaming_use-cases.drawio.png)
 
 #### Publish Video
 
