@@ -12,6 +12,25 @@ spring:
     multipart:
       max-file-size: ${MAX_FILE_SIZE:100MB}
       max-request-size: ${MAX_FILE_SIZE:100MB}
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://database:5432/videostreaming}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: POSTGRESQL
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: false
+  kafka:
+    topic: statistics
+    producer:
+      acks: -1
+      bootstrap-servers: ${KAFKA_URL:kafka:29092}
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
 eureka:
   client:
@@ -19,6 +38,16 @@ eureka:
       defaultZone: ${EUREKA_URI:http://service.discovery:8761/eureka}
   instance:
     preferIpAddress: true
+
+app:
+  streaming:
+    default-chunk-size: 3145728 #value in bytes
+
+minio:
+  url: ${MINIO_URI:http://minio:9000}
+  username: ${DATABASE_USERNAME:admin}
+  password: ${DATABASE_PASSWORD:password}
+  put-object-part-size: 5242880 #value in bytes (minimum is 5 MB equivalent)
 
 management:
   endpoints:
